@@ -1,0 +1,13 @@
+
+# Windows
+Thumbs.db
+[Dd]esktop.ini
+
+# MacOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Custom Ignored
+_*

@@ -1,0 +1,103 @@
+
+:focus-visible {
+	outline: 2px solid #007aff;
+}
+
+body {
+	font-family: arial, helvetica, sans-serif;
+	background-color: #000;
+	color: #fff;
+	margin: 40px;
+	text-align: center;
+}
+
+button {
+	background-color: #333;
+	color: #fff;
+	padding: 12px 26px;
+	border: none;
+	border-radius: 6px;
+	box-shadow: 0px 4px 0px #151515;
+	position: relative;
+	top: -2px;
+}
+button:active {
+	top: 0;
+	box-shadow: none;
+}
+
+input {
+	padding: 12px;
+	border: none;
+	border-radius: 6px;
+	margin-right: 6px;
+	width: 30px;
+	background-color: #333;
+	color: #fff;
+}
+input[type="checkbox"] {
+	width: 26px;
+	height: 26px;
+	border: none;
+	position: relative;
+	top: 4px;
+}
+
+
+
+/* To Do List */
+
+.pattern-bg {
+	background-image: url('../img/bg.png');
+	background-attachment: fixed;	
+}
+.light-bg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding: 40px;
+	background-image: url('../img/light.png');
+	background-size: cover;	
+	overflow-x: hidden;
+	overflow-y: auto;	
+}
+.dark-crystal {
+	background: rgba(0,0,0,0.5);
+	padding: 40px;
+	border-radius: 20px;
+}
+.container {
+	margin: 0 auto;
+	max-width: 100%;
+	width: 600px;
+	box-sizing: border-box;
+}
+.inline-form {	
+	background-color: #222;
+	padding: 10px;
+	border-radius: 6px;
+	display: flex;
+	flex-direction: row;
+}
+.inline-form input {
+	margin-right: 10px;
+}
+.inline-form input[type="text"] {
+	flex: 1;
+}
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+ul li {
+	margin: 10px 0;
+}
+button.primary {
+	background-color: #005add;	
+}
+button.danger {
+	background-color: #a22;
+}
