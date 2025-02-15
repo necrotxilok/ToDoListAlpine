@@ -1,6 +1,6 @@
 
 /**
- * ToDosListAlpine JS - v1.0
+ * ToDoListAlpine JS - v1.0
  * ---------------------------------------------------------------
  * @author necro_txilok
  * 
