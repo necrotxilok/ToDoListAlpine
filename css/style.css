@@ -1,4 +1,11 @@
 
+/**
+ * ToDosListAlpine CSS - v1.0
+ * ---------------------------------------------------------------
+ * @author necro_txilok
+ */
+
+
 :focus-visible {
 	outline: 2px solid #007aff;
 }

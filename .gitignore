@@ -11,3 +11,6 @@ Thumbs.db
 
 # Custom Ignored
 _*
+
+# Data Dir
+data/

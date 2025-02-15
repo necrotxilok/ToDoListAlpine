@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="necro_txilok">
 	<title>To Do List Alpine</title>
 	<link rel="icon" href="favicon.png">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -26,7 +27,7 @@
 						<template x-for="(todo, index) in todos">
 							<li class="inline-form">
 								<input type="checkbox" x-model="todo.done"/>
-								<input type="text" x-model="todo.text">
+								<input type="text" x-model.debounce="todo.text">
 								<button class="danger" @click="delTodo(index)">X</button>
 							</li>
 						</template>
