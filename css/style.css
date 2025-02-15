@@ -76,7 +76,7 @@ input[type="checkbox"] {
 	border-radius: 20px;
 }
 .container {
-	margin: 0 auto;
+	margin: 0 auto 40px;
 	max-width: 100%;
 	width: 600px;
 	box-sizing: border-box;
@@ -106,5 +106,11 @@ button.primary {
 	background-color: #005add;	
 }
 button.danger {
-	background-color: #a22;
+	background-color: #aa2222;
 }
+
+button.green {
+	background-color: #009d00;	
+}
+
+
