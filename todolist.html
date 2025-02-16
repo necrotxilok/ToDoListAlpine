@@ -10,9 +10,12 @@
 	<script defer src="vendor/alpinejs-3.14.8.min.js"></script>
 	<script src="js/todolist.js"></script>
 </head>
-<body class="pattern-bg" x-data="todoList()">
-	<div id="app" class="light-bg">
-		<div class="container dark-crystal">
+<body>
+	<div class="bg pattern-bg">
+		<div class="bg light-bg"></div>
+	</div>
+	<div id="app" class="container" x-data="todoList()">
+		<div class="panel">
 			<div class="loading" x-show="!loaded" x-text="error"></div>
 			<div class="todos-list" x-show="loaded">
 				<h1>To Do List Alpine</h1>
@@ -35,7 +38,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="container dark-crystal" x-show="loaded">
+		<div class="panel" x-show="loaded">
 			<div class="toolbar">
 				<button :class="offline ? 'green' : ''" @click="setOffline(true)">Local</button>
 				<button :class="!offline ? 'green' : ''" @click="setOffline(false)">API</button>

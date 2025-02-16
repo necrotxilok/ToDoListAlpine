@@ -88,7 +88,7 @@
 				});
 			},
 			async load() {
-				document.querySelector('#app').scrollTo(0,0);
+				window.scrollTo(0,0);
 				console.log('MODE: ' + (this.offline ? 'Local' : 'API'));
 				if (this.offline) {
 					this.todos = getLocalTodos();
