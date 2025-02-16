@@ -18,6 +18,5 @@ require_once "functions/response.php";
 // FlexCore Constants
 
 define('DEBUG', true);
-define('WINSYS', strtoupper(substr(PHP_OS, 0, 3)) === 'WIN');
 define('DATADIR', get_absolute_path(__DIR__ . "/../data"));
 

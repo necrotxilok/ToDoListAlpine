@@ -5,11 +5,18 @@
  * ---------------------------------------------------------------
  * @author necro_txilok
  * 
- * @uses WINSYS
  * @uses ROOTDIR
  */
 
 //================================================================
+
+/**
+ * Is Running On Windows
+ */
+function isWinSys() {
+	if (!defined('__IS_WIN_SYS__')) define('__IS_WIN_SYS__', strtoupper(substr(PHP_OS, 0, 3)) === 'WIN');
+	return __IS_WIN_SYS__;
+}
 
 /**
  * Get Absolute Path
@@ -27,7 +34,7 @@ function get_absolute_path($path, $create = false) {
 		}
 	}
 	$path = implode(DIRECTORY_SEPARATOR, $absolutes);
-	if (!WINSYS) {
+	if (!isWinSys()) {
 		$path = '/' . $path;
 	}
 	if ($create) {
