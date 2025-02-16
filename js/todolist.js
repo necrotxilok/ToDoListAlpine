@@ -88,6 +88,7 @@
 				});
 			},
 			async load() {
+				this.loaded = false;
 				window.scrollTo(0,0);
 				console.log('MODE: ' + (this.offline ? 'Local' : 'API'));
 				if (this.offline) {
@@ -119,7 +120,6 @@
 				}
 				this.offline = offline;
 				localStorage.setItem('ToDoListAlpineOffline', offline ? 'on' : 'off');
-				this.loaded = false;
 				this.load();
 			}
 		}
