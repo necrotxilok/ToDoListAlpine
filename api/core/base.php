@@ -18,5 +18,5 @@ require_once "functions/response.php";
 // FlexCore Constants
 
 define('DEBUG', true);
-define('DATADIR', get_absolute_path(__DIR__ . "/../data"));
+define('DATADIR', get_real_path(__DIR__ . "/../data"));
 

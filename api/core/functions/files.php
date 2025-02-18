@@ -11,19 +11,12 @@
 //================================================================
 
 /**
- * Is Running On Windows
+ * Get Real Path
  */
-function isWinSys() {
-	if (!defined('__IS_WIN_SYS__')) define('__IS_WIN_SYS__', strtoupper(substr(PHP_OS, 0, 3)) === 'WIN');
-	return __IS_WIN_SYS__;
-}
-
-/**
- * Get Absolute Path
- */
-function get_absolute_path($path, $create = false) {
-	$path = str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, $path);
-	$parts = array_filter(explode(DIRECTORY_SEPARATOR, $path), 'strlen');
+function get_real_path($path, $create = false) {
+	$path = str_replace('\\', '/', trim($path));
+	$absolute = str_starts_with($path, '/');
+	$parts = array_filter(explode('/', $path), 'strlen');
 	$absolutes = array();
 	foreach ($parts as $part) {
 		if ('.' == $part) continue;
@@ -33,8 +26,8 @@ function get_absolute_path($path, $create = false) {
 			$absolutes[] = $part;
 		}
 	}
-	$path = implode(DIRECTORY_SEPARATOR, $absolutes);
-	if (!isWinSys()) {
+	$path = implode('/', $absolutes);
+	if ($absolute) {
 		$path = '/' . $path;
 	}
 	if ($create) {
