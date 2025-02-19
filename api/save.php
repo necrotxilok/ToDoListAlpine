@@ -6,7 +6,7 @@
  * @author necro_txilok
  */
 
-require_once "core/base.php";
+require_once "base.php";
 
 if (empty($_POST['todos'])) {
 	return_error("ERROR: Todos field is required.");
@@ -14,7 +14,7 @@ if (empty($_POST['todos'])) {
 
 $todos = json_decode($_POST['todos']);
 if (!$todos || !is_array($todos)) {
-	return_error("ERROR: Invalid JSON data.");	
+	return_error("ERROR: Invalid todos data.");	
 }
 
 saveJSONData('todos', $todos);

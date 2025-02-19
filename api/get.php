@@ -6,7 +6,7 @@
  * @author necro_txilok
  */
 
-require_once "core/base.php";
+require_once "base.php";
 
 if (!existsJSONFile('todos')) {
 	saveJSONData('todos', []);
