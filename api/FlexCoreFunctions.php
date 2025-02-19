@@ -1,7 +1,7 @@
 <?php
 
 /**
- * ToDoListAlpine Base API Functions - v1.0
+ * FlexCore Functions - v1.0
  * ---------------------------------------------------------------
  * @author necro_txilok
  */
