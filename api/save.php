@@ -17,6 +17,6 @@ if (!$todos || !is_array($todos)) {
 	return_error("ERROR: Invalid todos data.");	
 }
 
-saveJSONData('todos', $todos);
+save_json('todos', $todos);
 
 return_msg('OK');

@@ -8,10 +8,6 @@
 
 require_once "FlexCoreFunctions.php";
 
-if (!existsJSONFile('todos')) {
-	saveJSONData('todos', []);
-}
-
-$todos = getJSONData('todos');
+$todos = get_json('todos', []);
 
 return_data($todos);

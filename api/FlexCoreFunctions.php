@@ -8,6 +8,7 @@
 
 //================================================================
 
+require_once "libs/FileStorage.php";
 
 //----------------------------------------------------------------
 
@@ -42,7 +43,7 @@ function json_response($data) {
 }
 
 /**
- * return JSON error message
+ * Return JSON Error Message
  */
 function return_error($msg, $code = 1) {
 	json_response(array(
@@ -52,7 +53,7 @@ function return_error($msg, $code = 1) {
 }
 
 /**
- * return JSON data
+ * Return JSON Data
  */
 function return_data($data, $msg = "") {
 	json_response(array(
@@ -62,7 +63,7 @@ function return_data($data, $msg = "") {
 }
 
 /**
- * return JSON message
+ * Return JSON Message
  */
 function return_msg($msg) {
 	json_response(array(
@@ -81,36 +82,54 @@ function create_full_path($path) {
 	}
 }
 
+/**
+ * Delete Full Path
+ */
+function delete_full_path($path) {
+	$deleted = @unlink($path);
+	if ($deleted) {
+		$empty = true;
+		while ($empty && ($path = dirname($path)) && $path != "data") {
+			$empty = @rmdir($path);
+		} 
+	}
+	return $deleted;
+}
+
+
 //----------------------------------------------------------------
 
-/**
- * Check if JSON file Exists
- */
-function existsJSONFile($filename) {
-	$path = DATADIR."/$filename.json";
-	return file_exists($path);
+function get_json_storage() {
+	static $storage;
+	if (!$storage) {
+		$storage = new FileStorage(DATADIR, 'json');
+	}
+	return $storage;
 }
 
 /**
  * Get JSON Data from file
  */
-function getJSONData($filename) {
-	$json = file_get_contents(DATADIR."/$filename.json");
+function get_json($filename, $default = null) {
+	$storage = get_json_storage();
+	if (!$storage->exists($filename)) {
+		save_json($filename, $default);
+	}
+	$json = $storage->get($filename);
 	return json_decode($json, true);
 }
 
 /**
  * Save data into JSON file
  */
-function saveJSONData($filename, $data) {
-	$path = DATADIR."/$filename.json";
-	create_full_path(dirname($path));
+function save_json($filename, $data) {
+	$storage = get_json_storage();
 	if (DEBUG) {
 		$json = json_encode($data,  JSON_NUMERIC_CHECK | JSON_PRETTY_PRINT);
 	} else {
 		$json = json_encode($data,  JSON_NUMERIC_CHECK);
 	}
-	return @file_put_contents($path, $json);
+	return $storage->save($filename, $json);
 }
 
 
