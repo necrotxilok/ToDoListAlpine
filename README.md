@@ -15,9 +15,9 @@ This is my first app created with Alpine.js and was really fun to create it whil
 
 ## How to run
 
-It works by downloading the project files and opening the file `todolist.html` in any browser, but you can only use the Local mode. 
+It works by downloading the project files and opening the file `index.html` in any browser, but you can only use the Local mode. 
 
-If the project is open from a local server with Apache2/PHP7+, you can run the API mode. Then the to do list data is fetch and saved using the API and the backend store al todos into a JSON file in `api/data` folder.
+If the project is open from a local server with Apache2/PHP7+, you can run the API mode. Then the to do list data is fetch and saved using the API and the backend store al todos into the file `api/data/todos.json`.
 
 ## References
 

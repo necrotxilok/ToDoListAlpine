@@ -70,6 +70,10 @@ ul li {
 	margin: 10px 0;
 }
 
+a {
+	color: #fff;
+}
+
 /* To Do List */
 
 .bg {
@@ -88,6 +92,10 @@ ul li {
 	background-size: cover;	
 }
 
+.content {
+	position: relative;
+}
+
 .container {
 	margin: 0 auto;
 	max-width: 100%;
@@ -101,6 +109,20 @@ ul li {
 	padding: 40px;
 	border-radius: 20px;
 	margin-bottom: 40px;
+}
+.panel h1,
+.panel h4 {
+	margin-top: 0;
+}
+
+.bottom-panel {
+	position: relative;
+	background: rgba(0,0,0,0.5);
+	padding: 16px;
+	margin: 40px 0;
+	border-radius: 20px;
+	margin-bottom: 40px;
+	font-size: 10px;
 }
 
 .inline-form {	
@@ -117,3 +139,6 @@ ul li {
 	flex: 1;
 }
 
+.empty-space {
+	padding: 100px;
+}
