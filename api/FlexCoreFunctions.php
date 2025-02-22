@@ -9,6 +9,7 @@
 //================================================================
 
 require_once "libs/FileStorage.php";
+require_once "libs/JsonStorage.php";
 
 //----------------------------------------------------------------
 
@@ -102,7 +103,7 @@ function delete_full_path($path) {
 function get_json_storage() {
 	static $storage;
 	if (!$storage) {
-		$storage = new FileStorage(DATADIR, 'json');
+		$storage = new JsonStorage(DATADIR);
 	}
 	return $storage;
 }
@@ -112,11 +113,7 @@ function get_json_storage() {
  */
 function get_json($filename, $default = null) {
 	$storage = get_json_storage();
-	if (!$storage->exists($filename)) {
-		save_json($filename, $default);
-	}
-	$json = $storage->get($filename);
-	return json_decode($json, true);
+	return $storage->get($filename, []);
 }
 
 /**
@@ -124,12 +121,7 @@ function get_json($filename, $default = null) {
  */
 function save_json($filename, $data) {
 	$storage = get_json_storage();
-	if (DEBUG) {
-		$json = json_encode($data,  JSON_NUMERIC_CHECK | JSON_PRETTY_PRINT);
-	} else {
-		$json = json_encode($data,  JSON_NUMERIC_CHECK);
-	}
-	return $storage->save($filename, $json);
+	return $storage->save($filename, $data);
 }
 
 

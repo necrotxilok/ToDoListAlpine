@@ -44,11 +44,11 @@ class FileStorage
 	/**
 	 * Save Data into File
 	 */
-	public function save($filename, $html) 
+	public function save($filename, $data) 
 	{
 		$path = $this->getFullPath($filename);
 		create_full_path(dirname($path));
-		return @file_put_contents($path, $html);
+		return @file_put_contents($path, $data);
 	}
 
 	/**
