@@ -74,32 +74,6 @@ function return_msg($msg) {
 
 //----------------------------------------------------------------
 
-/**
- * Create Full Path
- */
-function create_full_path($path) {
-	if (!file_exists($path)) {
-		mkdir($path, 0755, true);
-	}
-}
-
-/**
- * Delete Full Path
- */
-function delete_full_path($path) {
-	$deleted = @unlink($path);
-	if ($deleted) {
-		$empty = true;
-		while ($empty && ($path = dirname($path)) && $path != "data") {
-			$empty = @rmdir($path);
-		} 
-	}
-	return $deleted;
-}
-
-
-//----------------------------------------------------------------
-
 function get_json_storage() {
 	static $storage;
 	if (!$storage) {
